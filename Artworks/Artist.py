@@ -1,22 +1,12 @@
 class Artist:
-    # TODO: Define constructor with parameters to initialize instance attributes
-    #       (name, birth_year, death_year)    
-    def __init__(self, name = 'None', birth_year = 0, death_year = 0):
-        self.name = name 
+    def __init__(self, name=None, birth_year=None, death_year=None):
+        # Initialize the artist with name, birth year, and optionally death year
+        self.name = name
         self.birth_year = birth_year
-        self.death_year = death_year        
-        
-    def name(self):       
-        return self.name        
-        
-    def birth_year(self):       
-        return self.birth_year
-
-    def death_year(self):       
-        return self.death_year     
+        self.death_year = death_year
 
     def print_info(self):
-        if self.death_year == -1:
-            print('Artist: {}, born {}'.format(self.name, self.birth_year))
-        else:
-            print('Artist: {} ({}-{})'.format(self.name, self.birth_year, self.death_year))
+        # Determine the death info, using 'Present' if the artist is still alive
+        death_info = ' - ' if self.death_year is None else self.death_year
+        # Print the artist's information in a readable format
+        print(f"Artist: {self.name}, Born: {self.birth_year}, Died: {death_info}")
