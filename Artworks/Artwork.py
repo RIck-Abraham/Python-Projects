@@ -1,23 +1,17 @@
-# TODO: Import Artist from Artist.py
-from Artist import Artist
+from Artist import Artist  # Import the Artist class to associate an artist with an artwork
 
 class Artwork:
-    # TODO: Define constructor with parameters to initialize instance attributes
-    #       (title, year_created, artist)    
-    def __init__(self, title = 'None', year_created = 0, artist = 'None'):
+    def __init__(self, title=None, year_created=None, artist=None):
+        # Initialize the artwork with a title, creation year, and artist
         self.title = title
         self.year_created = year_created
-        self.artist = artist        
-        
-    def title(self):
-        return self._title        
-        
-    def year_created(self):       
-        return self.year_created
+        self.artist = artist
 
-    def artist(self):       
-        return self.artist              
-            
     def print_info(self):
-        self.artist.print_info()
-        print('Title: %s, %d' % (self.title, self.year_created))
+        # Print the artwork's title and year of creation
+        print(f"Title: {self.title}, Year: {self.year_created}")
+        # If an artist is associated with the artwork, print the artist's info
+        if self.artist:
+            self.artist.print_info()
+        else:
+            print("Unknown Artist")
